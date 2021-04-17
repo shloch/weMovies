@@ -13,7 +13,8 @@ class MainSection extends Component {
   }
 
   componentDidMount() {
-    fetch('https://www.omdbapi.com/?apikey=ab5b6fa3&s=fast')
+    const apiKey = 'ab5b6fa3&s=fast'
+    fetch('https://www.omdbapi.com/?apikey=' + apiKey)
       .then(Response => Response.json())
       .then(apiData => {
         this.setState({

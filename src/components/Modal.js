@@ -3,15 +3,13 @@ import React, { Component } from 'react'
 class Modal extends Component {
 
   hidePop() {
-    // const tog = this.props.movie.movie.imdbID
-    // console.log(`tog  = ${tog}`)
 
     let modalDiv = document.querySelector('.modal')
     modalDiv.classList.remove("showModal");
   }
 
   render() {
-
+    const { movie } = this.props.movie
     return (
       <div class={"myModal modal " + movie.imdbID}>
         <button id="myBtn2" onClick={this.hidePop}>Close</button><br />
