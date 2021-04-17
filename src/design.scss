@@ -1,0 +1,152 @@
+div, main, header, footer, section {
+  // border:1px solid lightgreen;
+  min-height: 10px;
+}
+
+body {
+  // border: 1px solid red;
+  padding: 0 15%;
+  color: rgb(53, 52, 52);
+}
+
+header {
+  min-height: 20%;
+  display: flex;
+  div[id="apropos"] {
+    width: 50%;
+    font-size: 1.4em;
+    font-weight: bolder;
+    text-decoration: underline;
+    padding: 2.7% 0;
+    text-align: center;
+  }
+  div[id="search"] {
+    width: 50%;
+    text-align: end;
+    padding: 2.7% 0;
+  }
+}
+
+section[id="main-movie"] {
+  min-height: 250px;
+  border: 1px solid black;
+}
+
+main {
+  display: flex;
+  justify-content: space-between;
+  padding: 2% 0 0 0;
+
+  div[id="sideBar"] {
+    width: 18%;
+    .select-movie {
+      border: 1px solid gray;
+      padding: 15% 0;
+    }
+    
+    .checkb {
+      padding-left: 20%;
+    }
+  }
+
+  div[id="movies"] {
+    width: 80%;
+    // border: 1px solid black;
+    
+    div[class="movie"] {
+      background-color: rgb(240, 239, 239);
+      display: flex;
+      padding: 2% 2% 2% 2%;
+      justify-content: flex-end;
+      margin-bottom: 2%;
+      
+      div[class="thumbnail"] {  
+        width: 15%;
+        // border: 1px solid yellowgreen;
+        .thumnail-img {
+          width: 75px;
+          height: 115px;
+        }
+      }
+      div[class="article"] {
+        width: 75%;
+        display: flex;
+        flex-direction: column;
+        div[class="movie-name-stars"] {
+          // border: 1px solid green;
+          display: flex;
+          .movie-name {
+            width: 28%;
+            font-weight: 700;
+            font-size: 1.2em;
+            
+          }
+          .movie-stars {
+            width: 28%;
+          }
+          .movie-votes {
+            width: 28%;
+          }
+        }
+        div[class="movie-year"] {
+          // border: 1px solid green;
+
+        }
+        div[class="movie-text"] {
+          // border: 1px solid green;
+        }
+        div[class="pop-link"] {
+          margin-left: 55%;
+          // border: 1px solid orange;
+          width: 40%;
+          background-color: rgb(48, 134, 214);
+          border-radius: 23px;
+          padding: 2px;
+          color: white;
+          text-align: center;
+        }
+      }
+    }
+  }
+}
+
+/*------ popup design ----------*/
+
+
+.modal {
+  display: none;
+  // border:1px solid red;
+  
+}
+
+.showModal {
+  display: block;
+  border:1px solid orange;
+  min-height: 300px;
+  min-width: 500px;
+  position: absolute;
+  top: 45%;
+  left: 35%;
+  background-color: white;
+  .modal-content {
+    padding-left: 40px;
+    padding-bottom: 15px;
+  }
+  #myBtn2 {
+    background-color: rgb(48, 134, 214);
+    color: white;
+    padding: 1px;
+    font-size: 1.1em;
+  }
+  img {
+    width: 250px;
+    height: 355px;
+  }
+}
+
+/*------ popup design [end]----------*/
+
+@media screen and (max-width: 340px) {
+  // for mobile
+  
+}
