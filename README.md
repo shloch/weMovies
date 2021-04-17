@@ -1,4 +1,5 @@
 # weMovies
+Consuming a React Movie API and displaying. React setup is done from fresh Webpack installation
 
 ## Installations and Setup
 
