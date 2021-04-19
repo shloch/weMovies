@@ -57,7 +57,6 @@ class MainSection extends Component {
 
   render() {
     const { allMovies } = this.state;
-    console.log(`genreID init = ${this.state.genreID}`)
     let movies = allMovies.map((mov) => <Movie key={uuidv4()} movie={mov} />)
     return (
       <main>

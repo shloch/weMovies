@@ -126,13 +126,14 @@ main {
   min-width: 500px;
   position: absolute;
   top: 45%;
-  left: 35%;
+  left: 21%;
+  right: 15%;
   background-color: white;
   .modal-content {
     padding-left: 40px;
     padding-bottom: 15px;
   }
-  #myBtn2 {
+  .myBtn2 {
     background-color: rgb(48, 134, 214);
     color: white;
     padding: 1px;

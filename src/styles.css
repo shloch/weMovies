@@ -82,12 +82,13 @@ main {
   min-width: 500px;
   position: absolute;
   top: 45%;
-  left: 35%;
+  left: 21%;
+  right: 15%;
   background-color: white; }
   .showModal .modal-content {
     padding-left: 40px;
     padding-bottom: 15px; }
-  .showModal #myBtn2 {
+  .showModal .myBtn2 {
     background-color: #3086d6;
     color: white;
     padding: 1px;

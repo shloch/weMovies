@@ -2,18 +2,21 @@ import React, { Component } from 'react'
 
 class Modal extends Component {
 
-  hidePop() {
+  hidePop(e) {
+    const closeButtonID = e.target.id;
+    const closeButtonID_tmp = closeButtonID.split('').splice(5,).join('') // remove string "close" injected into the button ID tag (exemple: from 'close334' to '334')
+    const idPopup = `div${closeButtonID_tmp}`
+    let popupDIV = document.querySelector(`.${idPopup}_`)
+    popupDIV.classList.remove("showModal");
 
-    let modalDiv = document.querySelector('.modal')
-    modalDiv.classList.remove("showModal");
   }
 
+
   render() {
-    console.log(this.props)
-    const { title, vote_count, release_date, overview, poster_path, backdrop_path } = this.props.movie
+    const { title, release_date, overview, backdrop_path, id } = this.props.movie
     return (
-      <div class={"myModal modal"}>
-        <button id="myBtn2" onClick={this.hidePop}>Close</button><br />
+      <div class={`myModal modal div${id}_`}>
+        <button class="myBtn2" id={`close${id}`} onClick={this.hidePop}>Close</button><br />
         {/* <!-- Modal content --> */}
         <div class="modal-content">
           <span class="close"><h4>MOVIE: {title}</h4></span>

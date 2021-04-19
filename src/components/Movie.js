@@ -2,18 +2,27 @@ import React, { Component } from 'react'
 import Modal from './Modal'
 
 class Movie extends Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      movieID: this.props.movie.id
+    }
+  }
 
 
-  displayPop() {
-    // const tog = this.state.movieclass
-    let modalDiv = document.querySelector(".modal")
-    modalDiv.classList.add("showModal");
+
+  displayPop(e) {
+    const idPopup = e.target.id
+    let popupDIV = document.querySelector(`.${idPopup}_`)
+    popupDIV.classList.add("showModal");
   }
 
   render() {
-    const { title, vote_count, release_date, overview, poster_path } = this.props.movie
+    // console.log(`movie id = ${this.state.movieID}`)
+    const { title, vote_count, release_date, overview, poster_path, id } = this.props.movie
     return (
-      <div class="movie" >
+      <div class="movie">
         <div class="thumbnail">
           <img class="thumnail-img" src={`https://image.tmdb.org/t/p/w500/` + poster_path} alt="thumbnail" />
         </div>
@@ -38,11 +47,11 @@ class Movie extends Component {
           </div>
 
           {/* <!-- Trigger/Open The Modal --> */}
-          <div class="pop-link" id="myBtn" onClick={this.displayPop}>
+          <div class={`pop-link`} id={`div${id}`} onClick={this.displayPop}>
             Lire les details
           </div>
         </div>
-      </div>
+      </div >
     )
   }
 
