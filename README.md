@@ -24,11 +24,11 @@ Consuming a React Movie API and displaying. React setup is done from fresh Webpa
 - Curl (command line tool to test API calls)
 - Bash terminal (for typing commands)
 - VSCode (coding tool)
-- www.omdbapi.com <--API
+- https://developers.themoviedb.org/3/discover/movie-discover <--API
 
 ## Future ameliorations
+- Finish with the tick appearance
 - work on the auto-completion feature
-- Work on another API with a video aspect and complete the design
 - work on the mobile version of the app and make it more responsive
 
 ## Contributor

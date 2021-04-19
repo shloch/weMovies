@@ -129,6 +129,9 @@ main {
   left: 21%;
   right: 15%;
   background-color: white;
+  box-shadow: 11px 10px 128px 0px rgba(0,0,0,0.81);
+-webkit-box-shadow: 11px 10px 128px 0px rgba(0,0,0,0.81);
+-moz-box-shadow: 11px 10px 128px 0px rgba(0,0,0,0.81);
   .modal-content {
     padding-left: 40px;
     padding-bottom: 15px;
