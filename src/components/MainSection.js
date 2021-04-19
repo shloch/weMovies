@@ -2,8 +2,9 @@ import React, { Component } from 'react'
 import { v4 as uuidv4 } from 'uuid';
 import Movie from './Movie'
 import SidebarItem from './SidebarItem'
+import apiKey from './apiKey'
 
-//   <!--middle section with checkboxes-->
+
 class MainSection extends Component {
   constructor(props) {
     super(props)
@@ -16,8 +17,7 @@ class MainSection extends Component {
   }
 
   componentDidMount() {
-    const key = 'ee652a4c10bbae4e71f91b8eb0d004ba'
-    const fetchURL = `https://api.themoviedb.org/3/discover/movie?api_key=${key}&language=en-US`
+    const fetchURL = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=en-US`
     fetch(fetchURL)
       .then(Response => Response.json())
       .then(apiData => {
@@ -32,11 +32,8 @@ class MainSection extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    let fetchURL = ''
-    const key = 'ee652a4c10bbae4e71f91b8eb0d004ba'
     if (prevState.genreID !== this.state.genreID) {
-      const key = 'ee652a4c10bbae4e71f91b8eb0d004ba'
-      const fetchURL = `https://api.themoviedb.org/3/discover/movie?api_key=${key}&language=en-US&with_genres=${this.state.genreID}`
+      const fetchURL = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=en-US&with_genres=${this.state.genreID}`
       fetch(fetchURL)
         .then(Response => Response.json())
         .then(apiData => {
@@ -52,7 +49,6 @@ class MainSection extends Component {
   }
 
   updateSearchGenre(genreID) {
-    // console.log(`genreID  = ${genreID}`)
     this.setState({
       genreID: genreID
     })
@@ -63,7 +59,6 @@ class MainSection extends Component {
     const { allMovies } = this.state;
     console.log(`genreID init = ${this.state.genreID}`)
     let movies = allMovies.map((mov) => <Movie key={uuidv4()} movie={mov} />)
-    // let movieCategories = genres.map((gen) => <SidebarItem key={uuidv4()} genre={gen} />)
     return (
       <main>
         <div id="sideBar">

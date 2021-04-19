@@ -6,7 +6,8 @@ export class SidebarItem extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      genres: []
+      genres: [],
+      isChecked: false
     }
   }
 
@@ -27,10 +28,11 @@ export class SidebarItem extends Component {
   }
 
   render() {
+    const { isChecked } = this.state
 
     let movieCategories = this.state.genres.map(gen =>
       <div class='checkb'>
-        <input type="checkbox" value={gen.id} key={uuidv4()} onChange={(e) => this.props.updateSearchGenre(e.target.value)} /> {gen.name} - {gen.id}
+        <input type="checkbox" value={gen.id} checked={isChecked} key={uuidv4()} onChange={(e) => this.props.updateSearchGenre(e.target.value)} /> {gen.name}
       </div>
     )
 

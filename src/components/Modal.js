@@ -9,16 +9,18 @@ class Modal extends Component {
   }
 
   render() {
-    const { movie } = this.props.movie
+    console.log(this.props)
+    const { title, vote_count, release_date, overview, poster_path, backdrop_path } = this.props.movie
     return (
-      <div class={"myModal modal " + movie.imdbID}>
+      <div class={"myModal modal"}>
         <button id="myBtn2" onClick={this.hidePop}>Close</button><br />
         {/* <!-- Modal content --> */}
         <div class="modal-content">
-          <span class="close"><h4>MOVIE: {movie.Title}</h4></span>
-          <p>A {movie.Type}, released in <strong>{movie.Year}</strong></p>
+          <span class="close"><h4>MOVIE: {title}</h4></span>
+          <p>A Movie, released in <strong>{release_date}</strong></p>
+          <p>{overview}</p>
           <div class="thumbnail">
-            <img src={movie.Poster} alt="thumbnail" />
+            <img src={`https://image.tmdb.org/t/p/w500/` + backdrop_path} alt="thumbnail" />
           </div>
         </div>
       </div>

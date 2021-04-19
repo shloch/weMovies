@@ -33,7 +33,7 @@ class Movie extends Component {
             {overview}
 
             {/* <!-- The Modal --> */}
-            <Modal movie={this.props} />
+            <Modal movie={this.props.movie} />
 
           </div>
 
