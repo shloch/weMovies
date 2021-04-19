@@ -1,6 +1,10 @@
 # weMovies
 Consuming a React Movie API and displaying. React setup is done from fresh Webpack installation
 
+# Live demo
+
+https://raw.githack.com/shloch/weMovies/master/dist/index.html
+
 ## Installations and Setup
 
 - clone repository
@@ -12,8 +16,6 @@ Consuming a React Movie API and displaying. React setup is done from fresh Webpa
 
 
 ## Screenshot
-
-
 
 ![alt text](https://github.com/shloch/weMovies/blob/master/weMovies.gif)
 
