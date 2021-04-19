@@ -11,26 +11,26 @@ class Movie extends Component {
   }
 
   render() {
+    const { title, vote_count, release_date, overview, poster_path } = this.props.movie
     return (
       <div class="movie" >
         <div class="thumbnail">
-          <img class="thumnail-img" src={this.props.movie.Poster} alt="thumbnail" />
+          <img class="thumnail-img" src={`https://image.tmdb.org/t/p/w500/` + poster_path} alt="thumbnail" />
         </div>
         <div class="article">
           <div class="movie-name-stars">
-            <div class="movie-name"> {this.props.movie.Title}</div>
+            <div class="movie-name"> {title}</div>
             <div class="movie-stars"> * * * * * </div>
-            <div class="movie-votes"> (XXX votes)</div>
+            <div class="movie-votes"> ({vote_count} votes)</div>
           </div>
 
           <div class="movie-year">
-            {this.props.movie.Year}
+            {release_date}
           </div>
 
           <div class="movie-text">
             <br /><br />
-                imdbID : {this.props.movie.imdbID} <br />
-                Type : <strong> {this.props.movie.Type} </strong>
+            {overview}
 
             {/* <!-- The Modal --> */}
             <Modal movie={this.props} />

@@ -1,24 +1,28 @@
 import React, { Component } from 'react'
 import { v4 as uuidv4 } from 'uuid';
 import Movie from './Movie'
-
+import SidebarItem from './SidebarItem'
 
 //   <!--middle section with checkboxes-->
 class MainSection extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      allMovies: []
+      allMovies: [],
+      genreID: ''
     }
+    this.updateSearchGenre = this.updateSearchGenre.bind(this);
+
   }
 
   componentDidMount() {
-    const apiKey = 'ab5b6fa3&s=fast'
-    fetch('https://www.omdbapi.com/?apikey=' + apiKey)
+    const key = 'ee652a4c10bbae4e71f91b8eb0d004ba'
+    const fetchURL = `https://api.themoviedb.org/3/discover/movie?api_key=${key}&language=en-US`
+    fetch(fetchURL)
       .then(Response => Response.json())
       .then(apiData => {
         this.setState({
-          allMovies: apiData.Search
+          allMovies: apiData.results
         })
       })
       .catch(e => {
@@ -27,20 +31,43 @@ class MainSection extends Component {
       });
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    let fetchURL = ''
+    const key = 'ee652a4c10bbae4e71f91b8eb0d004ba'
+    if (prevState.genreID !== this.state.genreID) {
+      const key = 'ee652a4c10bbae4e71f91b8eb0d004ba'
+      const fetchURL = `https://api.themoviedb.org/3/discover/movie?api_key=${key}&language=en-US&with_genres=${this.state.genreID}`
+      fetch(fetchURL)
+        .then(Response => Response.json())
+        .then(apiData => {
+          this.setState({
+            allMovies: apiData.results
+          })
+        })
+        .catch(e => {
+          console.log(e);
+          return e;
+        });
+    }
+  }
+
+  updateSearchGenre(genreID) {
+    // console.log(`genreID  = ${genreID}`)
+    this.setState({
+      genreID: genreID
+    })
+  }
+
 
   render() {
     const { allMovies } = this.state;
+    console.log(`genreID init = ${this.state.genreID}`)
     let movies = allMovies.map((mov) => <Movie key={uuidv4()} movie={mov} />)
+    // let movieCategories = genres.map((gen) => <SidebarItem key={uuidv4()} genre={gen} />)
     return (
       <main>
         <div id="sideBar">
-          <form action="/" name="selectMovie" class="select-movie">
-            <div class='checkb'> <input type="checkbox" /> Comedie </div>
-            <div class='checkb'> <input type="checkbox" /> Aventure </div>
-            <div class='checkb'> <input type="checkbox" /> Fantastique </div>
-            <div class='checkb'> <input type="checkbox" checked="checked" /> Animation </div>
-            <div class='checkb'> <input type="checkbox" /> Action </div>
-          </form>
+          <SidebarItem updateSearchGenre={this.updateSearchGenre} />
         </div>
 
         <div id="movies">
