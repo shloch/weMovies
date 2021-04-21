@@ -1,6 +1,7 @@
 
 import React, { Component } from 'react'
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from 'uuid'
+import apiKey from './apiKey'
 
 export class SidebarItem extends Component {
   constructor(props) {
@@ -12,8 +13,7 @@ export class SidebarItem extends Component {
   }
 
   componentDidMount() {
-    const key = 'ee652a4c10bbae4e71f91b8eb0d004ba'
-    const url = `https://api.themoviedb.org/3/genre/movie/list?api_key=${key}&language=en-US`
+    const url = `https://api.themoviedb.org/3/genre/movie/list?api_key=${apiKey}&language=en-US`
     fetch(url)
       .then(Response => Response.json())
       .then(apiData => {
