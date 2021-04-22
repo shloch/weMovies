@@ -45,5 +45,6 @@ https://raw.githack.com/shloch/weMovies/master/dist/index.html
 
 ## Acknowledgements
 - https://www.code-boost.com/webpack-react-setup/
+- https://docs.google.com/document/d/1yW1SmyDJ1ksa2Bn8g43WeG6uROhtK_hA6ccS3_bnpLs/edit#
 
 
